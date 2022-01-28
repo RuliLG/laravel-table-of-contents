@@ -19,9 +19,4 @@ class TestCase extends Orchestra
             TableOfContentsServiceProvider::class,
         ];
     }
-
-    public function getEnvironmentSetUp($app)
-    {
-        config()->set('database.default', 'testing');
-    }
 }
