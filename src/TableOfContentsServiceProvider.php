@@ -18,8 +18,6 @@ class TableOfContentsServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-table-of-contents')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-table-of-contents_table')
-            ->hasCommand(TableOfContentsCommand::class);
+            ->hasViews();
     }
 }
