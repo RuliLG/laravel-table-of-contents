@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace RuliLG\TableOfContents\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class TableOfContentsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-table-of-contents';
 
     public $description = 'My command';
 
