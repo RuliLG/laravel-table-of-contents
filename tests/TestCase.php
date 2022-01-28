@@ -2,7 +2,6 @@
 
 namespace RuliLG\TableOfContents\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RuliLG\TableOfContents\TableOfContentsServiceProvider;
 

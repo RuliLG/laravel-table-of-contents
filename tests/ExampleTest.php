@@ -25,13 +25,13 @@ it('returns empty toc', function () {
     expect($toc->items())->toBeEmpty();
 });
 
-it('returns right number of elements', function() use ($html1) {
+it('returns right number of elements', function () use ($html1) {
     $toc = TableOfContents::make($html1)->process();
     expect($toc->items())->toBeArray();
     expect($toc->items())->toHaveCount(9);
 });
 
-it('returns right number of elements ignoring tags', function() use ($html1) {
+it('returns right number of elements ignoring tags', function () use ($html1) {
     $toc = TableOfContents::make($html1)
         ->only(['h2', 'h3'])
         ->process();
@@ -39,7 +39,7 @@ it('returns right number of elements ignoring tags', function() use ($html1) {
     expect($toc->items())->toHaveCount(4);
 });
 
-it('returns empty items if ignoring all tags', function() use ($html1) {
+it('returns empty items if ignoring all tags', function () use ($html1) {
     $toc = TableOfContents::make($html1)
         ->only([])
         ->process();
@@ -47,7 +47,7 @@ it('returns empty items if ignoring all tags', function() use ($html1) {
     expect($toc->items())->toHaveCount(0);
 });
 
-it('successfully ignores non-heading tags', function() use ($html1) {
+it('successfully ignores non-heading tags', function () use ($html1) {
     $toc = TableOfContents::make($html1)
         ->only(['p'])
         ->process();
@@ -55,7 +55,7 @@ it('successfully ignores non-heading tags', function() use ($html1) {
     expect($toc->items())->toHaveCount(0);
 });
 
-it('works with mixed case', function() use ($html1) {
+it('works with mixed case', function () use ($html1) {
     $toc = TableOfContents::make($html1)
         ->only(['H1', 'h2', 'H3', 'h4', 'H5', 'H6', 'p'])
         ->process();
@@ -63,13 +63,13 @@ it('works with mixed case', function() use ($html1) {
     expect($toc->items())->toHaveCount(9);
 });
 
-it('returns the right original html', function() use ($html1) {
+it('returns the right original html', function () use ($html1) {
     $toc = TableOfContents::make($html1)
         ->process();
     expect($toc->originalHtml())->toBe($html1);
 });
 
-it('adds the right ids to the HTML', function() use ($html1) {
+it('adds the right ids to the HTML', function () use ($html1) {
     $toc = TableOfContents::make($html1)
         ->process();
     $processedHtml = $toc->html();
@@ -78,7 +78,7 @@ it('adds the right ids to the HTML', function() use ($html1) {
     }
 });
 
-it('keeps attributes on the processed HTML', function() {
+it('keeps attributes on the processed HTML', function () {
     $html = '<h1 id="hello-world" class="hello-world" style="color: red;">Hello World</h1>
     <h2 id="hello-world-2" class="hello-world" style="color: red;">Hello World 2</h2>';
     $toc = TableOfContents::make($html)->process();
@@ -86,7 +86,7 @@ it('keeps attributes on the processed HTML', function() {
     expect($toc->items())->toHaveCount(2);
 });
 
-it('returns the right anchor', function() {
+it('returns the right anchor', function () {
     $html = '<h1>Hello World</h1>
     <h2>Hello World 2</h2>';
     $toc = TableOfContents::make($html)->process();
@@ -96,7 +96,7 @@ it('returns the right anchor', function() {
     expect($items[1]->anchor())->toBe('Hello World 2');
 });
 
-it('returns the right depth', function() {
+it('returns the right depth', function () {
     $html = '<h1>Hello World</h1>
     <h2>Hello World 2</h2>';
     $toc = TableOfContents::make($html)->process();

@@ -4,7 +4,6 @@ namespace RuliLG\TableOfContents;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use RuliLG\TableOfContents\Commands\TableOfContentsCommand;
 
 class TableOfContentsServiceProvider extends PackageServiceProvider
 {

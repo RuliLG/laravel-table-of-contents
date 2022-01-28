@@ -17,8 +17,7 @@ class TableOfContents
     public function __construct(
         private string $html,
         private array $headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-    )
-    {
+    ) {
         // ...
     }
 
@@ -79,7 +78,7 @@ class TableOfContents
     {
         $processedHtml = $this->html;
         $toc = [];
-        $processedHtml = preg_replace_callback("/<h([\d])([\w.:=\"\'_\-,;\?\s#\(\)\/]*)>([^<]+)<\/h/", function($matches) use(&$toc) {
+        $processedHtml = preg_replace_callback("/<h([\d])([\w.:=\"\'_\-,;\?\s#\(\)\/]*)>([^<]+)<\/h/", function ($matches) use (&$toc) {
             $depth = $this->depthFor('h' . $matches[1]);
             if ($depth === 0) {
                 return $matches[0];
